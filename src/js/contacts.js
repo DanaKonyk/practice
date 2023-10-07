@@ -25,7 +25,7 @@ function onContactAdd(e) {
 }
 
 function creatrMarkup({ id, name, number}) {
-    return `<li>
+    return `<li class="contact-item">
   <p>${name}</p>
   <p>${number}</p>
   <button id='${id}' type="button">delete</button>
