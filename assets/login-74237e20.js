@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-ec808ebb.js";import{a as n,L as a}from"./api-57ab9633.js";const m={form:document.querySelector(".js-form")};m.form.addEventListener("submit",l);function l(e){e.preventDefault();const{email:r,password:t}=e.currentTarget.elements,s={email:r.value,password:t.value};n(s).then(o=>{console.log(o),localStorage.setItem(a,o.token)})}
