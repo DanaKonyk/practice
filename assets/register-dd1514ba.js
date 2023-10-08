@@ -1,0 +1,1 @@
+import{e as a,L as l}from"./api-8f5988ca.js";const m={form:document.querySelector(".js-form")};m.form.addEventListener("submit",c);function c(e){e.preventDefault();const{name:r,email:n,password:t}=e.currentTarget.elements,s={name:r.value,email:n.value,password:t.value};a(s).then(o=>{console.log(o),localStorage.setItem(l,o.token)})}location.replace("/");
