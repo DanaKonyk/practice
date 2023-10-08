@@ -1,5 +1,11 @@
 import { LS_KEY } from "./helpers";
-import { onUserServiceAdd, onUserServiceLogin, onContactServiceAdd } from "./api";
+import {
+    onUserServiceAdd,
+    onUserServiceLogin,
+    onContactServiceAdd,
+    onContactServiceGet,
+    onContactServiceDelete,
+} from "./api";
 
 
 const refs = {
@@ -28,6 +34,23 @@ function creatrMarkup({ id, name, number}) {
     return `<li class="contact-item">
   <p>${name}</p>
   <p>${number}</p>
-  <button id='${id}' type="button">delete</button>
+  <button class='delete-btn' id='${id}' type="button">delete</button>
 </li>`
+}
+
+onContactServiceGet().then(resp =>
+    (refs.list.innerHTML = resp.map(creatrMarkup).join(''))
+);
+
+
+refs.list.addEventListener('click', onContactDelete);
+
+async function onContactDelete(e) {
+    if (!e.target.classList.contains('delete-btn')) {
+        return;
+    }
+    await onContactServiceDelete(e.target.id);
+    onContactServiceGet().then(resp =>
+    (refs.list.innerHTML = resp.map(creatrMarkup).join(''))
+);
 }

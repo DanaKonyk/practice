@@ -20,6 +20,8 @@ function onUserLogin(e) {
     onUserServiceLogin(user).then((data) => {
         console.log(data);
         localStorage.setItem(LS_KEY, data.token)
+        location.replace('/')
     })
     
 }
+

@@ -35,4 +35,29 @@ export async function onContactServiceAdd(contact) {
 }
 
 
+export async function onContactServiceGet() {
+    try {
+        const { data } = await axios.get('/contacts');
+        return data;
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 
+export async function onContactServiceDelete(contactId) {
+    try {
+        const { data } = await axios.delete(`/contacts/${contactId}`);
+        return data;
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export async function onUserServiceLogout() {
+    try {
+        const { data } = await axios.post('/users/logout');
+        return data;
+    } catch (error) {
+        console.log(error.message);
+    }
+}

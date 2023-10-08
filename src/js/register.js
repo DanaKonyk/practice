@@ -23,3 +23,5 @@ function onUnserAdd(e) {
     })
     
 }
+
+location.replace('/')
